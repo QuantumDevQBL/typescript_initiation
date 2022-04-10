@@ -1,11 +1,13 @@
-
+import { useEffect } from "react";
+import play from "../playground";
+import test from "../test";
 
 export default function Home() {
+ useEffect(() => {
+   play();
+   test();
+ }, []);
 
-const message: string = "Hello world from index.js"
 
-
-  return (
-    <div>{message}</div>
-  )
+  return <div>Hello world</div>;
 }
