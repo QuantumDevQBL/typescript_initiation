@@ -10,6 +10,13 @@ age: number
 }
 
 
+// interface PersonLoggerFn {
+// (name: string, age: number): string 
+// }
+
+//type function
+type PersonLoggerFn = (name:string, age: number) => string
+
 // type aliases
 //To describe function types
 //type Person = {
@@ -31,18 +38,15 @@ const person: Person = {
 }
 
 
-function logPersonInfo(personName: string, personAge: number) {
+const logPersonInfo: PersonLoggerFn = (personName: string, personAge: number): string => {
 //const info = "Name: " + personName + ", Age: " + personAge
 //Or with interpollation
 const info = `Name: ${personName}, age: ${personAge}`
-
-
-
 console.log(info)
 return info
 } 
 
-function logPersonInfo2(person: Person) {
+const logPersonInfo2 = (person: Person) => {
   //const info = "Name: " + personName + ", Age: " + personAge
   //Or with interpollation
   const info = `Name: ${person.name}, age: ${person.age}`
@@ -51,9 +55,11 @@ function logPersonInfo2(person: Person) {
   return info
   } 
 
-logPersonInfo(name, age)
+const log: string = logPersonInfo(name, age)
 
 logPersonInfo2(person)
+
+logPersonInfo("Hello", 56)
 
 }
 
